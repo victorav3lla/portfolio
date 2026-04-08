@@ -34,3 +34,14 @@ setInterval(() => {
   scrambleTo(isAlias ? original : alias);
   isAlias = !isAlias;
 }, 3000);
+
+const bgLogo = document.querySelector('.bg-logo');
+const heroSection = document.getElementById('hero');
+
+window.addEventListener('scroll', () => {
+  if (window.scrollY > heroSection.offsetHeight * 0.8) {
+    bgLogo.classList.add('visible');
+  } else {
+    bgLogo.classList.remove('visible');
+  }
+});
