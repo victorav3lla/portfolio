@@ -477,8 +477,8 @@ footer {
 }
 
 .preview img {
-  width: 280px;
-  height: 180px;
+  width: 380px;
+  height: 280px;
   object-fit: cover;
   border-radius: 6px;
   border: 1px solid var(--border);
