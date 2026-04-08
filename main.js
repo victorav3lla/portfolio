@@ -45,3 +45,14 @@ window.addEventListener('scroll', () => {
     bgLogo.classList.remove('visible');
   }
 });
+
+document.querySelectorAll('.preview-toggle').forEach(toggle => {
+  toggle.addEventListener('click', () => {
+    const preview = toggle.nextElementSibling;
+    preview.classList.toggle('open');
+    toggle.classList.toggle('active');
+    toggle.textContent = preview.classList.contains('open')
+      ? '▼ Hide screenshots'
+      : '▶ View screenshots';
+  });
+});
