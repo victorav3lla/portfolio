@@ -1,6 +1,10 @@
 const observer = new IntersectionObserver((entries) => {
   entries.forEach(e => {
-    if (e.isIntersecting) e.target.classList.add('visible');
+    if (e.isIntersecting) {
+      e.target.classList.add('visible');
+    } else if (e.boundingClientRect.top > 0) {
+      e.target.classList.remove('visible');
+    }
   });
 }, { threshold: 0.15 });
 
@@ -110,3 +114,5 @@ function animate() {
 }
 
 animate();
+
+document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-scale').forEach(el => observer.observe(el));
