@@ -739,6 +739,62 @@ footer {
     opacity: 0.15;
     animation: logoRockMobile 8s ease-in-out infinite, logoGlitchMobile 5s ease-in-out infinite;
   }
+
+  /* Quitar espacio extra entre secciones */
+  section {
+    padding: 4rem 1.2rem 2rem;
+  }
+
+  #hero {
+    min-height: auto;
+    padding-top: 6rem;
+    padding-bottom: 2rem;
+  }
+
+  /* About: stats más compactos */
+  .about-content {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .about-stats {
+    grid-template-columns: 1fr 1fr;
+    gap: 0.8rem;
+  }
+
+  .stat {
+    padding: 1rem;
+  }
+
+  .stat-num {
+    font-size: 1.5rem;
+  }
+
+  /* Contact links en fila en mobile */
+  .contact-links {
+    flex-direction: row;
+    gap: 0.5rem;
+  }
+
+  .contact-links a {
+    padding: 0.5rem 1rem;
+    font-size: 0.7rem;
+  }
+
+  .contact-box {
+    padding: 2rem 1.2rem;
+  }
+
+  /* Hero links en fila */
+  .hero-links {
+    flex-direction: row;
+    gap: 0.8rem;
+  }
+
+  .hero-links a {
+    font-size: 0.75rem;
+    padding: 0.6rem 1.2rem;
+  }
 }
 
 @media (max-width: 380px) {
@@ -898,15 +954,13 @@ body {
   height: 200%;
   top: -50%;
   left: -50%;
-  background: conic-gradient(
-    transparent 0deg,
-    var(--accent) 60deg,
-    transparent 120deg,
-    var(--accent2) 180deg,
-    transparent 240deg,
-    var(--accent) 300deg,
-    transparent 360deg
-  );
+  background: conic-gradient(transparent 0deg,
+      var(--accent) 60deg,
+      transparent 120deg,
+      var(--accent2) 180deg,
+      transparent 240deg,
+      var(--accent) 300deg,
+      transparent 360deg);
   animation: borderSpin 4s linear infinite;
   opacity: 0;
   transition: opacity 0.4s;
