@@ -56,3 +56,57 @@ document.querySelectorAll('.preview-toggle').forEach(toggle => {
       : '▶ View screenshots';
   });
 });
+
+const canvas = document.getElementById('bg-canvas');
+const ctx = canvas.getContext('2d');
+
+function resize() {
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+}
+resize();
+window.addEventListener('resize', resize);
+
+const chars = '✦✧★·◦○●◈◇△▽♩♪♫♬♯♭⟐⊹⋆⊕⊗☽☾∞Ω'.split('');
+const particles = [];
+
+for (let i = 0; i < 60; i++) {
+  particles.push({
+    x: Math.random() * window.innerWidth,
+    y: Math.random() * window.innerHeight,
+    char: chars[Math.floor(Math.random() * chars.length)],
+    size: Math.random() * 14 + 8,
+    speedX: (Math.random() - 2.5) * 0.4,
+    speedY: (Math.random() - 1.5) * 0.3,
+    opacity: Math.random() * 0.003 + 0.02,
+    rotation: Math.random() * 360,
+    rotSpeed: (Math.random() - 1.5) * 0.5
+  });
+}
+
+function animate() {
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+  particles.forEach(p => {
+    p.x += p.speedX;
+    p.y += p.speedY;
+    p.rotation += p.rotSpeed;
+
+    if (p.x < -50) p.x = canvas.width + 50;
+    if (p.x > canvas.width + 50) p.x = -50;
+    if (p.y < -50) p.y = canvas.height + 50;
+    if (p.y > canvas.height + 50) p.y = -50;
+
+    ctx.save();
+    ctx.translate(p.x, p.y);
+    ctx.rotate(p.rotation * Math.PI / 180);
+    ctx.font = `${p.size}px JetBrains Mono, monospace`;
+    ctx.fillStyle = `rgba(255, 255, 255, ${p.opacity})`;
+    ctx.fillText(p.char, 0, 0);
+    ctx.restore();
+  });
+
+  requestAnimationFrame(animate);
+}
+
+animate();

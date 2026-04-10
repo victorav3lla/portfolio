@@ -985,3 +985,44 @@ body {
   position: relative;
   z-index: 1;
 }
+
+#skills, #projects, #about, #contact {
+  position: relative;
+}
+
+#skills::before,
+#projects::before,
+#about::before,
+#contact::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  width: 100vw;
+  left: 50%;
+  transform: translateX(-50%);
+  pointer-events: none;
+  z-index: -1;
+}
+
+#skills::before {
+  background: linear-gradient(180deg, transparent, rgba(255, 77, 77, 0.03) 50%, transparent);
+}
+
+#projects::before {
+  background: linear-gradient(180deg, transparent, rgba(77, 255, 180, 0.03) 50%, transparent);
+}
+
+#about::before {
+  background: linear-gradient(180deg, transparent, rgba(77, 79, 255, 0.03) 50%, transparent);
+}
+
+#contact::before {
+  background: linear-gradient(180deg, transparent, rgba(255, 77, 255, 0.03) 50%, transparent);
+}
+
+#bg-canvas {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+}
