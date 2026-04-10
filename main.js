@@ -116,3 +116,65 @@ function animate() {
 animate();
 
 document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-scale').forEach(el => observer.observe(el));
+
+function setupWave(canvasId) {
+  const c = document.getElementById(canvasId);
+  const ctx = c.getContext('2d');
+
+  function resize() {
+    c.width = c.parentElement.offsetWidth;
+    c.height = 75;
+  }
+  resize();
+  window.addEventListener('resize', resize);
+
+  let offset = Math.random() * 100;
+
+  function draw() {
+    ctx.clearRect(0, 0, c.width, c.height);
+
+    const points1 = [];
+    const points2 = [];
+
+    for (let x = 0; x < c.width; x++) {
+      const twist = Math.sin(x * 0.02 + offset * 1.7) * 8;
+      const y1 = 15 + Math.sin((x * 0.02) + offset) * twist
+        + Math.sin((x * 0.04) + offset * 1.3) * 2;
+      const y2 = 15 - Math.sin((x * 0.03) + offset) * twist
+        + Math.sin((x * 0.04) + offset * 1.3 + 2) * 2;
+      points1.push({ x, y: y1 });
+      points2.push({ x, y: y2 });
+    }
+
+    // Connecting bars
+    ctx.strokeStyle = 'rgba(255, 255, 255, 0.06)';
+    ctx.lineWidth = 0.5;
+    for (let i = 0; i < points1.length; i += 20) {
+      ctx.beginPath();
+      ctx.moveTo(points1[i].x, points1[i].y);
+      ctx.lineTo(points2[i].x, points2[i].y);
+      ctx.stroke();
+    }
+
+    // Strand 1
+    ctx.beginPath();
+    points1.forEach((p, i) => i === 0 ? ctx.moveTo(p.x, p.y) : ctx.lineTo(p.x, p.y));
+    ctx.strokeStyle = 'rgba(255, 77, 77, 0.6)';
+    ctx.lineWidth = 1.5;
+    ctx.stroke();
+
+    // Strand 2
+    ctx.beginPath();
+    points2.forEach((p, i) => i === 0 ? ctx.moveTo(p.x, p.y) : ctx.lineTo(p.x, p.y));
+    ctx.strokeStyle = 'rgba(77, 255, 180, 0.5)';
+    ctx.lineWidth = 1.5;
+    ctx.stroke();
+
+    offset += 0.02;
+    requestAnimationFrame(draw);
+  }
+
+  draw();
+}
+setupWave('wave-canvas');
+setupWave('wave-canvas-2');
