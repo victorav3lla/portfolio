@@ -768,7 +768,7 @@ footer {
   transform: rotate(-45deg) translate(5px, -5px);
 }
 
-@media (max-width: 768px) {
+@media (max-width: 900px) {
   nav {
     flex-direction: column;
     gap: 0.5rem;
@@ -788,16 +788,21 @@ footer {
   }
 
   #hero::after {
-    width: 500px;
-    height: 500px;
-    right: auto;
-    left: calc(50% - 250px);
+    width: 250px;
+    height: 250px;
+    right: -5%;
+    left: auto;
     top: 50%;
-    margin-top: -250px;
+    margin-top: -125px;
     transform: none;
     opacity: 0.15;
     animation: logoRockMobile 8s ease-in-out infinite, logoGlitchMobile 5s ease-in-out infinite;
   }
+
+  .tag { font-size: 0.6rem; }
+  #hero h1 { font-size: 1.8rem; }
+  #hero p { font-size: 0.85rem; max-width: 60%; }
+  .hero-links a { font-size: 0.7rem; padding: 0.5rem 1rem; }
 
   /* Quitar espacio extra entre secciones */
   section {
