@@ -316,6 +316,7 @@ section {
   border: 1px solid rgba(77, 255, 180, 0.15);
 }
 
+
 .project-link {
   display: inline-block;
   margin-top: 1rem;
@@ -689,7 +690,7 @@ footer {
 
 .shape {
   position: absolute;
-  opacity: 0.25;
+  opacity: 0.15;
   filter: blur(150px) saturate(2);
   animation: float 20s infinite ease-in-out;
 }
@@ -899,25 +900,33 @@ footer {
 }
 
 @keyframes logoGlitch {
-  0%, 38%, 46%, 100% {
+
+  0%,
+  38%,
+  46%,
+  100% {
     filter: blur(0) brightness(0.4) hue-rotate(0deg);
     opacity: 1;
   }
+
   39% {
     filter: blur(3px) brightness(0.8) hue-rotate(90deg);
     opacity: 0.9;
     transform: translateY(-50%) translate(5px, -3px);
   }
+
   41% {
     filter: blur(0) brightness(0.6) hue-rotate(180deg);
     opacity: 1;
     transform: translateY(-50%) translate(-5px, 3px);
   }
+
   43% {
     filter: blur(2px) brightness(0.7) hue-rotate(270deg);
     opacity: 0.85;
     transform: translateY(-50%) translate(3px, 2px);
   }
+
   45% {
     filter: blur(0) brightness(0.5) hue-rotate(45deg);
     opacity: 1;
@@ -1080,6 +1089,14 @@ footer {
   .hero-links a {
     font-size: 0.75rem;
     padding: 0.6rem 1.2rem;
+  }
+
+  .skills-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .projects-grid {
+    grid-template-columns: 1fr;
   }
 }
 
