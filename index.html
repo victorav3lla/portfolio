@@ -97,6 +97,43 @@
         <a href="https://www.talez.me" target="_blank" class="project-link">Visit Talez →</a>
       </div>
 
+      <div class="card reveal-scale">
+        <span class="project-tag">Web / E-commerce</span>
+        <h3>La Figurita — Custom Sticker Albums</h3>
+        <p>Landing page for a personalized Panini-style album business. Built with Vite, vanilla JS and Tailwind CSS.
+        </p>
+        <span class="preview-toggle">▶ View screenshots</span>
+        <div class="preview">
+          <img src="images/figurita-1.png" alt="La Figurita screenshot 1">
+          <img src="images/figurita-2.png" alt="La Figurita screenshot 2">
+          <img src="images/figurita-3.png" alt="La Figurita screenshot 3">
+        </div>
+        <div class="stack">
+          <span data-tip="Fast build tool">Vite</span>
+          <span data-tip="Vanilla ES6+">JavaScript</span>
+          <span data-tip="Utility-first CSS">Tailwind</span>
+          <span data-tip="Serverless deploy">Vercel</span>
+        </div>
+        <a href="https://lafigurita.com" target="_blank" class="project-link">Visit Site →</a>
+      </div>
+
+      <div class="card reveal">
+        <span class="project-tag">Web / Hospitality</span>
+        <h3>Duke's Albania — Hotel Site</h3>
+        <p>Freelance delivery for a client in Albania. Fast, elegant and deployed on Vercel.</p>
+        <span class="preview-toggle">▶ View screenshots</span>
+        <div class="preview">
+          <img src="images/Dukes1.png" alt="Duke's Albania screenshot 1">
+          <img src="images/Dukes2.png" alt="Duke's Albania screenshot 2">
+          <img src="images/Dukes3.png" alt="Duke's Albania screenshot 3">
+        </div>
+        <div class="stack">
+          <span>JavaScript</span><span>Stimulus</span><span>Tailwind</span><span>Vite</span>
+        </div>
+        <a href="https://dukes-albania-git-dev-victorav3llas-projects.vercel.app" target="_blank"
+          class="project-link">Visit
+          Site →</a>
+      </div>
       <div class="card reveal">
         <span class="project-tag">AI / Music</span>
         <h3>Muzik — AI Playlist Generator</h3>
@@ -125,23 +162,6 @@
         <a href="https://github.com/victorav3lla" target="_blank" class="project-link">View on GitHub →</a>
       </div>
 
-      <div class="card reveal">
-        <span class="project-tag">Web / Hospitality</span>
-        <h3>Duke's Albania — Hotel Site</h3>
-        <p>Freelance delivery for a client in Albania. Fast, elegant and deployed on Vercel.</p>
-        <span class="preview-toggle">▶ View screenshots</span>
-        <div class="preview">
-          <img src="images/Dukes1.png" alt="Duke's Albania screenshot 1">
-          <img src="images/Dukes2.png" alt="Duke's Albania screenshot 2">
-          <img src="images/Dukes3.png" alt="Duke's Albania screenshot 3">
-        </div>
-        <div class="stack">
-          <span>JavaScript</span><span>Stimulus</span><span>Tailwind</span><span>Vite</span>
-        </div>
-        <a href="https://dukes-albania-git-dev-victorav3llas-projects.vercel.app" target="_blank"
-          class="project-link">Visit
-          Site →</a>
-      </div>
 
       <div class="card reveal">
         <span class="project-tag">Bot / Automation</span>
@@ -209,6 +229,14 @@
   <canvas id="bg-canvas"></canvas>
   <script src="main.js"></script>
 
+
+  <div class="lightbox" onclick="if(event.target===this)this.classList.remove('active')">
+    <button class="lb-close" onclick="document.querySelector('.lightbox').classList.remove('active')">✕</button>
+    <button class="lb-prev" onclick="lbNav(-1)">‹</button>
+    <div class="lb-container"></div>
+    <button class="lb-next" onclick="lbNav(1)">›</button>
+    <div class="lb-dots"></div>
+  </div>
 </body>
 
 </html>

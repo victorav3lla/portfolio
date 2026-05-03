@@ -178,3 +178,47 @@ function setupWave(canvasId) {
 }
 setupWave('wave-canvas');
 setupWave('wave-canvas-2');
+
+let lbImages = [];
+let lbIndex = 0;
+
+function openLightbox(previewEl) {
+  const lightbox = document.querySelector('.lightbox');
+  const container = lightbox.querySelector('.lb-container');
+  const dots = lightbox.querySelector('.lb-dots');
+
+  lbImages = Array.from(previewEl.querySelectorAll('img')).map(img => img.src);
+  lbIndex = 0;
+
+  dots.innerHTML = lbImages.map((_, i) =>
+    `<span class="lb-dot ${i === 0 ? 'active' : ''}" onclick="lbGo(${i})"></span>`
+  ).join('');
+
+  lbShow(container);
+  lightbox.classList.add('active');
+}
+
+function lbShow(container) {
+  if (!container) container = document.querySelector('.lb-container');
+  container.innerHTML = `<img src="${lbImages[lbIndex]}" alt="Screenshot ${lbIndex + 1}">`;
+  document.querySelectorAll('.lb-dot').forEach((d, i) => {
+    d.classList.toggle('active', i === lbIndex);
+  });
+}
+
+function lbNav(dir) {
+  lbIndex = (lbIndex + dir + lbImages.length) % lbImages.length;
+  lbShow();
+}
+
+function lbGo(i) {
+  lbIndex = i;
+  lbShow();
+}
+
+document.querySelectorAll('.preview img').forEach(img => {
+  img.addEventListener('click', (e) => {
+    e.stopPropagation();
+    openLightbox(img.closest('.preview'));
+  });
+});
